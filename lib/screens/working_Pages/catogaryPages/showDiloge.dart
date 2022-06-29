@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:_save_karo/models/catogary/categoryModel.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,7 @@ Future openDailoge(context, type) async {
 
                   Navigator.of(context).pop();
                 },
-                child: const Text("Submit"))
+                child: const Text("Submited"))
           ],
         );
       });
