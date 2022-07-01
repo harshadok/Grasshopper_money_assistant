@@ -123,15 +123,20 @@ class _SettingPageState extends State<SettingPage> {
                           color: IconsColure,
                         )),
                   ),
-                  const ListTile(
-                      title: Text(
-                        "Write A Reveiew",
-                        style: SettingsTextStyle,
-                      ),
-                      leading: Icon(
-                        Icons.rate_review_rounded,
-                        color: IconsColure,
-                      )),
+                  GestureDetector(
+                    onTap: () {
+                      gottoplaystore();
+                    },
+                    child: const ListTile(
+                        title: Text(
+                          "Write A Reveiew",
+                          style: SettingsTextStyle,
+                        ),
+                        leading: Icon(
+                          Icons.rate_review_rounded,
+                          color: IconsColure,
+                        )),
+                  ),
                   GestureDetector(
                     onTap: () {
                       _launcher();
@@ -166,6 +171,33 @@ class _SettingPageState extends State<SettingPage> {
     );
   }
 
+  Future<void> gottoplaystore() async {
+    if (await launch(
+        'https://play.google.com/store/apps/details?id=com.fouvty.grasshopper')) {
+      throw "Try Again";
+    }
+  }
+
+  submited() {
+    {
+      final snackBar = SnackBar(
+        duration: const Duration(seconds: 2),
+        backgroundColor: backroundColure,
+        content: const Text('Reset Completed',
+            style: TextStyle(fontSize: 15, fontFamily: fontFamilyCustome)),
+        action: SnackBarAction(
+          label: 'Ok',
+          textColor: backroundUnselectedColur,
+          onPressed: () {
+            // Some code to undo the change.
+          },
+        ),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+  }
+
   Future<void> showConfrom(context) async {
     return showDialog<void>(
       context: context,
@@ -195,6 +227,8 @@ class _SettingPageState extends State<SettingPage> {
               ),
               onPressed: () {
                 TranscationDb.instance.deleteall();
+                submited();
+
                 Navigator.of(context).pop();
               },
             ),
@@ -229,9 +263,10 @@ class _SettingPageState extends State<SettingPage> {
   Future onshare(con) async {
     final box = context.findRenderObject() as RenderBox?;
     await Share.share(
-      "GrassShopper : Will Bring Wealth",
+      "Grasshopper: Money Assistant \n Click Here To Download The Application :https://play.google.com/store/apps/details?id=com.fouvty.grasshopper",
       subject: "subject",
       sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
     );
   }
 }
+//random text deelt at eny time

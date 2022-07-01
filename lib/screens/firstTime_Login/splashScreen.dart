@@ -37,29 +37,32 @@ class _SplashSCreenState extends State<SplashSCreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 350,
+              height: 100,
+            ),
+            Image.asset(
+              "Assets/images/real2.png",
+              height: 300,
+              width: 180,
+            ),
+            const SizedBox(
+              height: 10,
             ),
             Row(
-              children: [
+              children: const [
                 SizedBox(
-                  width: 100,
+                  width: 10,
                   height: 50,
-                  child: Image.asset(
-                    "Assets/images/appstore.png",
-                    height: 300,
-                    width: 180,
-                  ),
                 ),
-                const Text(
-                  "GrssShoper ",
-                  style: TextStyle(fontWeight: FontWeight.w200, fontSize: 30),
+                Text(
+                  "Grasshopper :Money Assistant ",
+                  style: TextStyle(fontWeight: FontWeight.w200, fontSize: 32),
                 ),
               ],
             ),
             Row(
               children: const [
                 SizedBox(
-                  width: 150,
+                  width: 130,
                 ),
                 Text(
                   "Will Bring Wealth.",
