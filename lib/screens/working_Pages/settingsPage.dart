@@ -201,7 +201,7 @@ class _SettingPageState extends State<SettingPage> {
   Future<void> showConfrom(context) async {
     return showDialog<void>(
       context: context,
-      barrierDismissible: false, // user must tap button!
+      barrierDismissible: false, // user must tap button!mvaskgit
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text(
